@@ -1,0 +1,134 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Node.js specific
+node_modules/
+jspm_packages/
+web_modules/
+bower_components/
+build/Release
+*.tsbuildinfo
+.npm
+.eslintcache
+.stylelintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Python/Flask specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+instance/
+.webassets-cache
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Virtual environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Build and distribution
+dist/
+build/
+out/
+.next
+.nuxt
+.vuepress/dist
+**/.vitepress/dist
+.docusaurus
+
+# Cache directories
+.cache
+.parcel-cache
+.temp
+**/.vitepress/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+cython_debug/
+
+# Testing and coverage
+coverage
+*.lcov
+.nyc_output
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+.nox/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+celerybeat-schedule
+celerybeat.pid
+
+# Development tools
+.grunt
+.fusebox/
+.serverless/
+.dynamodb/
+.tern-port
+.vscode-test
+.spyderproject
+.spyproject
+.ropeproject
+.dmypy.json
+dmypy.json
+.pyre/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Miscellaneous
+*.swp
+*~
+lock-wscript
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+.pypirc
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+*.sage.py
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
