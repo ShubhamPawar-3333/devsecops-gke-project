@@ -31,8 +31,8 @@ app.get('/', async (req, res) => {
         html += `</ul>
             <h2>Create Order</h2>
             <form action="/create-order" method="POST">
-                <label>Product ID: <input type="number" name="product_id" required></label><br>
-                <label>Quantity: <input type="number" name="quantity" required></label><br>
+                <label>Product ID: <input type="number" name="product_id" required></label>
+                <label>Quantity: <input type="number" name="quantity" required></label>
                 <button type="submit">Submit Order</button>
             </form>`;
         res.send(html);
