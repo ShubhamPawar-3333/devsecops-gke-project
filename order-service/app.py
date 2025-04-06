@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
+import requests
 
 app = Flask(__name__)
 
-# Use your Atlas connection string
 # Use your Atlas connection string
 connection_string = 'mongodb+srv://shubhamdpawar3333:PROdYeLHrcSmO3Ec@cluster0.pxoxxui.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 client = MongoClient(connection_string)
@@ -33,11 +33,22 @@ def create_order():
     data = request.get_json()
     if not data or 'product_id' not in data or 'quantity' not in data:
         return jsonify({"error": "Missing product_id or quantity"}), 400
+
+    # Fetch product price from Catalog Service
+    catalog_url = 'http://localhost:5001/api/catalog/{}'.format(data['product_id'])
+    try:
+        catalog_response = requests.get(catalog_url)
+        catalog_response.raise_for_status()
+        product = catalog_response.json()
+        price = product.get('price', 999.99)  # Default price if not found
+    except requests.RequestException:
+        return jsonify({"error": "Failed to fetch product price"}), 500
+
     new_order = {
         "id": orders_collection.count_documents({}) + 1,
         "product_id": data['product_id'],
         "quantity": data['quantity'],
-        "total": data['quantity'] * 999.99  # Dummy price, will integrate with catalog later
+        "total": data['quantity'] * price
     }
     orders_collection.insert_one(new_order)
     new_order.pop('_id')  # Remove MongoDB's _id field for cleaner response
